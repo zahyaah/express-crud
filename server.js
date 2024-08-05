@@ -56,6 +56,17 @@ app.put("/shoes/:id", (req, res) => {
     res.status(204).send(`Shoe with ID ${getId} updated!`);
 })
 
+app.delete("/shoes/:id", (req, res) => {
+    let getId = parseInt(req.params.id);
+    const index = exampleShoes.findIndex(shoe => shoe.id === getId);
+
+    if (index === -1)
+        return res.status(404).send({"Error": `Shoe with ID ${getId} was not found!`});
+
+    exampleShoes.splice(index, 1);
+    res.status(204).send(`Shoe with ID ${getId} deleted!`)
+})
+
 app.listen(PORT, () => {
     console.log(`Server running on ${PORT}`);
 })
