@@ -2,8 +2,6 @@ const express = require("express");
 const app = express(); 
 const PORT = process.env.PORT; 
 
-const shoes = []; 
-const id = 1; 
 
 const exampleShoes = [
     { "id": 1, "shoe": "Nike Vaporfly 3 Electric", "price": 21000},
